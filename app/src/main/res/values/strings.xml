@@ -9,5 +9,6 @@
     <string name="code">Code: %1$s</string>
     <string name="token">Access Token: %1$s</string>
     <string name="title_activity_song_list">SongListActivity</string>
+    <string name="title_activity_music">MusicActivity</string>
 
 </resources>
