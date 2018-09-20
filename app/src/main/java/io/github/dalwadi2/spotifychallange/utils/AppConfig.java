@@ -19,12 +19,12 @@ public class AppConfig {
 
 
     public static final class EXTRA {
-        public static final String artist_id = "37i9dQZF1DX2sUQwD7tbmL";
+        public static final String playlist_id = "37i9dQZF1DX2sUQwD7tbmL";
     }
 
     public static final class PARAMS {
         public static final String Authorization = "Authorization";
-        public static final String artist_id = "artist_id";
+        public static final String playlist_id = "playlist_id";
     }
 
 }

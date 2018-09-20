@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 import io.github.dalwadi2.spotifychallange.R;
@@ -48,9 +49,9 @@ public class SongsAdapter extends RecyclerView.Adapter<SongsAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull SongsAdapter.ViewHolder holder, int position) {
         RespPlaylist.Items model = modelList.get(position);
 
-        holder.tvTitle.setText(model.getTrack().getName());
-        holder.tvAlbum.setText(model.getTrack().getAlbum().getName());
-        holder.tvDuration.setText(String.format("%02d:%02d",
+        holder.tvTitle.setText(String.format(Locale.US, "Title: %s", model.getTrack().getName()));
+        holder.tvAlbum.setText(String.format(Locale.US, "Album: %s", model.getTrack().getAlbum().getName()));
+        holder.tvDuration.setText(String.format(Locale.US, "Duration: %02d:%02d",
                 TimeUnit.MILLISECONDS.toMinutes(model.getTrack().getDurationMs()),
                 TimeUnit.MILLISECONDS.toSeconds(model.getTrack().getDurationMs()) -
                         TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(model.getTrack().getDurationMs()))));

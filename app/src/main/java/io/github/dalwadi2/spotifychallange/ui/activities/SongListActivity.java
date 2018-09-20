@@ -48,7 +48,6 @@ public class SongListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_song_list);
-//        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_song_list);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -103,7 +102,8 @@ public class SongListActivity extends AppCompatActivity {
             }
         });
         pb.setVisibility(View.VISIBLE);
-        playlistCall = apiService.PLAYLIST_CALL("Bearer " + helper.LoadStringPref(AppConfig.PREF.AUTH_TOKEN, ""), AppConfig.EXTRA.artist_id);
+        playlistCall = apiService.PLAYLIST_CALL("Bearer " + helper.LoadStringPref(AppConfig.PREF.AUTH_TOKEN, "")
+                , AppConfig.EXTRA.playlist_id);
 
         playlistCall.enqueue(new Callback<RespPlaylist>() {
             @Override
@@ -122,7 +122,7 @@ public class SongListActivity extends AppCompatActivity {
     }
 
     private void connected() {
-        mSpotifyAppRemote.getPlayerApi().play("spotify:user:spotify:playlist:37i9dQZF1DX2sUQwD7tbmL");
+        mSpotifyAppRemote.getPlayerApi().play("spotify:user:spotify:playlist:" + AppConfig.EXTRA.playlist_id);
 
         mSpotifyAppRemote.getPlayerApi()
                 .subscribeToPlayerState().setEventCallback(new Subscription.EventCallback<PlayerState>() {

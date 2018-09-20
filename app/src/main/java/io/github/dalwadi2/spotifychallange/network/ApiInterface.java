@@ -11,7 +11,7 @@ import retrofit2.http.Path;
 public interface ApiInterface {
 
 
-    @GET(AppConfig.URL.API_PLAYLIST + "{" + AppConfig.PARAMS.artist_id + "}" + AppConfig.URL.POST_API)
+    @GET(AppConfig.URL.API_PLAYLIST + "{" + AppConfig.PARAMS.playlist_id + "}" + AppConfig.URL.POST_API)
     Call<RespPlaylist> PLAYLIST_CALL(@Header(AppConfig.PARAMS.Authorization) String header
-            , @Path(AppConfig.PARAMS.artist_id) String artist_id);
+            , @Path(AppConfig.PARAMS.playlist_id) String artist_id);
 }
